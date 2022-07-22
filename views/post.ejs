@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <div class="container">
+    <%- include('./partials/links.ejs') %>
+    <br />
+    <section class="text-center">
+      <h3>POST</h3>
+      <div class="border rounded-lg p-5">
+        <% if(post.length > 0){  %>
+        <% post.forEach(val=>{ %>
+        <div class="card lead rounded-lg bg-secondary pt-3 text-white my-2">
+          <p class="card-tile">
+            Title: <%= val.title %>
+          </p>
+          <div class="card-body">
+            <h4>Body:</h4>
+            <%= val.post %>
+          </div>
+          <div class="card-footer">
+            <!-- double quotes used outside, inside the call single quote was used -->
+            <p class="btn btn-danger btn-block" onclick="deletePost('<%= val.id %>')">Delete</p>
+          </div>
+        </div>
+        <% }) %>
+        <% }else{ %>
+        <p class="display-4">Post Not Found</p>
+        <br>
+        <a href="/add" class="btn btn-warning">Add posts</a>
+        <% } %>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    //   fetch function 
+    const deletePost = (id) => {
+      fetch(`/post/${id}`, {
+        method: 'DELETE'
+      }).then((data) => {
+        window.location.reload()
+        window.location.href = '/posts' // for redirect
+      })
+    }
+  </script>
+</body>
+
+</html>
