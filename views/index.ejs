@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head.ejs') %>
-  <body>
-    <div class="container">
-      <%- include('./partials/links.ejs') %>
-      <br />
-      <section class="jumbotron">
-        <h2 class="text-center">Welcome home</h2>
-      </section>
-    </div>
-  </body>
+<%- include('./partials/head.ejs') %>
+
+<body>
+  <div class="container">
+    <%- include('./partials/links.ejs') %>
+    <br />
+    <section class="jumbotron">
+      <h2 class="text-center">Welcome home</h2>
+      <br>
+      <p class="lead">
+        This is an <code>EJS</code> project, that was built with <span class="font-italic">express, nodejs, ejs</span>. This project is used to make a post, which consists of <span class="font-italic">Author, Title and The Post body itself</span>, posts can be
+        <span class="text-success">created</span> and <span class="text-danger"> deleted</span>. Friendly UI and easy to use. ENJOY!!.
+      </p>
+    </section>
+  </div>
+</body>
+
 </html>
