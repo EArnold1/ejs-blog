@@ -1,4 +1,3 @@
-
 const posts = [];
 
 // home page
@@ -29,8 +28,6 @@ const deletePost = (req, res) => {
     const index = posts.findIndex(val => val.id === id);
     posts.splice(index, 1);
 
-    console.log(index)
-    // return res.redirect(`/posts`)
     res.render(`posts`, { title: 'Post', posts })
 }
 
@@ -38,12 +35,19 @@ const deletePost = (req, res) => {
 const addPost = (req, res) => {
     const { title, post } = req.body;
 
+    const postSlug = post.split(' ');
+    let slug;
+    if (postSlug.length > 10) {
+        slug = postSlug.slice(0, 10).join(' ') + "...";
+    } else {
+        slug = post;
+    }
+
     const id = Math.random().toString()
-    const obj = { title, post, id }
+    const obj = { title, post, id, slug }
 
     posts.push(obj)
 
-    console.log(posts)
     res.redirect('/posts')
 }
 
