@@ -1,5 +1,5 @@
 const express = require('express');
-const { homePage, addPostPage, notFound } = require('../controllers/pages');
+const { homePage, addPostPage, notFound, postsPage } = require('../controllers/pages');
 
 const router = express.Router();
 
@@ -15,8 +15,14 @@ router.get('/', homePage);
 router.get('/add', addPostPage);
 
 
-//@route GET /add
-//desc add post page
+//@route GET /posts
+//desc read posts
+//Public
+router.get('/posts', postsPage);
+
+
+//@route GET /*
+//desc not found page
 //Public
 router.get('/*', notFound);
 
