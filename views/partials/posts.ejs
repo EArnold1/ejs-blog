@@ -1,0 +1,17 @@
+ <% if(posts.length > 0){  %>
+ <% posts.forEach(val=>{ %>
+ <div class="card lead rounded-lg bg-secondary pt-3 text-white my-2">
+   <p class="card-tile">
+     Title: <%= val.title %>
+   </p>
+   <div class="card-body">
+     <h4>Body:</h4>
+     <%= val.post %>
+   </div>
+ </div>
+ <% }) %>
+ <% }else{ %>
+ <p class="display-4">No posts yet</p>
+ <br>
+ <a href="/add" class="btn btn-warning">Add posts</a>
+ <% } %>

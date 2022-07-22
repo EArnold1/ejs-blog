@@ -9,26 +9,7 @@
     <section class="text-center">
       <h3>POSTS</h3>
       <div class="border rounded-lg p-5">
-        <% if(posts.length > 0){  %>
-        <% posts.forEach(val=>{ %>
-        <div class="card lead rounded-lg bg-secondary pt-3 text-white my-2">
-          <p class="card-tile">
-            Title: <%= val.title %>
-          </p>
-          <div class="card-body">
-            <h4>Body:</h4>
-            <%= val.post %>
-          </div>
-          <div class="card-footer">
-            <p class="btn btn-danger btn-block">Delete</p>
-          </div>
-        </div>
-        <% }) %>
-        <% }else{ %>
-        <p class="display-4">No posts yet</p>
-        <br>
-        <a href="/add" class="btn btn-warning">Add posts</a>
-        <% } %>
+        <%- include('./partials/posts.ejs') %>
       </div>
     </section>
   </div>
