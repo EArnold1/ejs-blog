@@ -1,17 +1,18 @@
  <% if(posts.length > 0){  %>
  <% posts.forEach(val=>{ %>
  <div class="card lead rounded-lg bg-secondary pt-3 text-white my-2">
-   <p class="card-tile">
+   <p class="card-title">
      Title: <%= val.title %>
    </p>
    <div class="card-body">
      <h4>Body:</h4>
      <%= val.slug %>
-   </div>
-   <div class="card-footer bg-dark">
-     <a href="/post/<%= val.id %> " class="text-primary">
+     <a href="/post/<%= val.id %> " class="text-info">
        more
      </a>
+   </div>
+   <div class="card-footer bg-dark py-1">
+     <p>- <%= val.author %> </p>
    </div>
  </div>
  <% }) %>

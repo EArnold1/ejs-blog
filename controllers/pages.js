@@ -33,7 +33,7 @@ const deletePost = (req, res) => {
 
 // add post logic
 const addPost = (req, res) => {
-    const { title, post } = req.body;
+    const { author, title, post } = req.body;
 
     const postSlug = post.split(' ');
     let slug;
@@ -44,7 +44,7 @@ const addPost = (req, res) => {
     }
 
     const id = Math.random().toString()
-    const obj = { title, post, id, slug }
+    const obj = { author, title, post, id, slug }
 
     posts.push(obj)
 
