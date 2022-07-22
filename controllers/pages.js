@@ -1,4 +1,5 @@
 
+const posts = [];
 
 // home page
 const homePage = (req, res) => {
@@ -11,7 +12,14 @@ const addPostPage = (req, res) => {
 }
 
 const addPost = (req, res) => {
-    console.log(req.body.title, req.body.post)
+    const { title, post } = req.body;
+
+    const id = Math.random().toString()
+    const obj = { title, post, id }
+
+    posts.push(obj)
+
+    console.log(posts)
     res.redirect('/')
 }
 
